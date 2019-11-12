@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.stx.test.demo.mapper.ContractMapper" >
+    <insert id="save"  parameterType="com.stx.test.demo.pojo.Contract">
+        insert into stx_contract(cId,cUser,cDate) values (#{cId},#{cUser},#{cDate})
+    </insert>
+    <update id="update" parameterType="com.stx.test.demo.pojo.Contract">
+        update stx_contract  set cUser=#{cUser},cDate=#{cDate} where cId=#{cId}
+    </update>
+</mapper>

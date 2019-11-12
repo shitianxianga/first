@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.stx.test.demo.mapper.OrderMapper" >
+    <insert id="add"  parameterType="com.stx.test.demo.pojo.Order" useGeneratedKeys="true" keyProperty="oId">
+        insert into stx_order (oId,oPrice,cId) values (#{oId},#{oPrice},#{cId})
+    </insert>
+    <update id="update" parameterType="com.stx.test.demo.pojo.Order">
+        update stx_order  set oPrice=#{oPrice},cId=#{cId} where oId=#{oId}
+    </update>
+    <select id="selectAll" parameterType="String" resultType="java.lang.Integer">
+        select oid from stx_order where cid=#{cid}
+    </select>
+</mapper>
