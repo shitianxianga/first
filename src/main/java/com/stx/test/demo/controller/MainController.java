@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 public class MainController {
 
     @Autowired
@@ -16,17 +16,18 @@ public class MainController {
 
     /**
      * eiditPeople：stx
-     * @param s
+     * @param contractQueryVo
      * @return
      * 新增合同功能
      * @RequestBody 用来接收json
      */
     @RequestMapping("/add")
-    public  String  addContract( @RequestParam("s") String s)
+    @ResponseBody
+    public  String  addContract(@RequestBody ContractQueryVo contractQueryVo)
     {
-        ContractQueryVo contractQueryVo= JsonUtils.jsonToPojo(s,ContractQueryVo.class);
+
         contractService.add(contractQueryVo);
-        return "index";
+        return "success";
     }
 
     /**
@@ -38,8 +39,9 @@ public class MainController {
     @RequestMapping("/edit")
     public  String  editContract(@RequestBody ContractQueryVo contractQueryVo)
     {
+
         contractService.edit(contractQueryVo);
-        return  "index";
+        return  "success";
     }
 
 
