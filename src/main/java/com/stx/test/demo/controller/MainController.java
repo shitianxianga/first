@@ -39,7 +39,6 @@ public class MainController {
     @RequestMapping("/edit")
     public  String  editContract(@RequestBody ContractQueryVo contractQueryVo)
     {
-
         contractService.edit(contractQueryVo);
         return  "success";
     }
